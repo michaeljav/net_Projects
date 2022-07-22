@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace HPlussSportTDD.Core
 {
-    internal class ShoppingCartManager
+    internal class ShoppingCartManager : IShoppingCartManager
     {  
         private List<AddToCartItem> _shopingCart;
         public ShoppingCartManager()
@@ -11,7 +11,12 @@ namespace HPlussSportTDD.Core
             _shopingCart = new List<AddToCartItem>();
         }
 
-        internal AddToCartResponse AddToCart(AddToCartRequest request)
+        public AddToCartItem[] GetCart()
+        {
+            return _shopingCart.ToArray();
+        }
+
+        public AddToCartResponse AddToCart(AddToCartRequest request)
         {
             var item = _shopingCart.Find(i => i.ArticleId == request.Item.ArticleId);
             if (item != null)
@@ -28,5 +33,7 @@ namespace HPlussSportTDD.Core
                 Items =_shopingCart.ToArray()
             };
         }
+
+       
     }
 }
