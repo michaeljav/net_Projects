@@ -24,7 +24,10 @@ namespace HPlusSportTDD.API.Controllers
         public IActionResult GetSingle(int id)
         {
             var article = _articles.Find(a => a.Id == id);
-            
+            if (article == null)
+            {
+                return NotFound();
+            }
             return Ok(article);
         }
     }

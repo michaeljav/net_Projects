@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\HPlusSportTDD.API\HPlusSportTDD.API.csproj" />
     <ProjectReference Include="..\HPlusSportTDD.Web\HPlusSportTDD.Web.csproj" />
   </ItemGroup>
 
